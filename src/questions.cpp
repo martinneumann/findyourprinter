@@ -17,7 +17,8 @@
 size_t curlFunctions::writeData(void* buffer, size_t size, size_t nmemb, void* userp) {
 	// writes Data to desired location, stdout for now
 	((std::string*)userp)->append((char*)buffer, size * nmemb);
-	    return size * nmemb;
+	std::cout << "retrieved data: " << buffer << std::endl;
+	return size * nmemb;
 }
 
 void curlFunctions::initCurl() {
@@ -30,12 +31,10 @@ void curlFunctions::initCurl() {
 	if (handle) {
 		std::cout << "Intialization successful." << std::endl;
 		CURLcode res;
-		 curl_easy_setopt(handle, CURLOPT_URL, "http://druckerchannel.de");
-		 curl_easy_setopt(handle, CURLOPT_WRITEDATA, writeData);
+		 curl_easy_setopt(handle, CURLOPT_URL, "http://www.druckerchannel.de/device_info.php?ID=4554&t=canon_maxify_mb5150/");
+		 //curl_easy_setopt(handle, CURLOPT_WRITEDATA, writeData);
 		 res = curl_easy_perform(handle);
 		 curl_easy_cleanup(handle);
-
-		 std::cout << readBuffer << std::endl;
 	} else {
 		std::cout << "Initialization failed." << std::endl;
 	}
