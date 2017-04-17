@@ -2,7 +2,7 @@
  * questions.cpp
  *
  *  Created on: 10.03.2017
- *      Author: Nelly
+ *      Author: Martin
  */
 
 #ifndef QUESTIONS_CPP
